@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameMonitor : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
+
     public float restartDealay = 2f;
+
+    public GameObject completeLevelUI;
+
+    public void CompleteLevel()
+    {
+        completeLevelUI.SetActive(true);
+    }
     public void EndGame()
     {
         if (!gameHasEnded)
@@ -13,7 +21,7 @@ public class GameMonitor : MonoBehaviour
             Debug.Log("Game over");
             Invoke("Restart", restartDealay);
         }
-      
+
     }
 
     void Restart()
